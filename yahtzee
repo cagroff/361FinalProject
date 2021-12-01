@@ -1,4 +1,12 @@
-    int yahtzee_menu (void)
+# Yahtzee
+# Code by: Josh C., Nathanael P., Caleb G., Harrison H., and Tatyana V.
+
+
+# INSERT: DECLARE VARIABLES AND FUNCTION TO RUN GAME
+
+# INSERT: MAIN MENU
+
+	int yahtzee_menu (void)
 {
 	int option = 0, play_game = 0;
 
@@ -47,3 +55,22 @@
 	
 	return play_game;
 }
+
+# INSERT: DICE ROLLING FUNCTION
+
+
+# INSERT: DICE REROLLING FUNCTION
+
+
+# INSERT: COMBINATION SELECTION
+
+
+# INSERT: SCORING FUNCTION
+
+
+# INSERT: A BUNCH OF FUNCTIONS FOR EACH TYPE OF SCORE
+
+
+# INSERT: FUNCTION FOR END OF GAME
+
+
