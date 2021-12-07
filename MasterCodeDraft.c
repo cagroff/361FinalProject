@@ -70,22 +70,26 @@ int main()
 {
 	//This while loop will keep going until the game is over.
 	int endgame=0;
-
+	int turn=0;
 	while (endgame!=1)
 	{
+		for(turn=0,turn<13,turn++)
+		{
 		//This is the score that both players have after each turn.
 		//
-		int Points1[]={};
-		int Points2[]={};
+
+		int rolldice(int scorecard1[]);
+		
 	        	
 		//We will first go to Player 1. They will roll the dice, then choose what they want to reroll.
 		//To do that we will call the rolling function.
 		//After rolling, Player 1 will pick which score they want to pick.
 
-		int rolldice(int scorecard[]);
+		int rolldice(int scorecard2[]);
 		
+		}
 	}
-	endgame=1;
+	
 }	
 
 //This part of the code will roll the dice and ask the user what they want to re-roll
@@ -104,7 +108,6 @@ int rolldice( int scorecard[]) {
         reroll[d] = 0;
 
     }
-
     while (ready == 0) {
 
         if (pressone == 1) {
@@ -840,7 +843,7 @@ int chance(int dice[5], int scorecard[13], int points[13])
 
 //Calculating Final Score
 
-finalscore(int scorelist1[], int scorelist2[]){
+finalscore(int scorecard1[], int scorecard2[]){
 
     // initialize score totals
     int total1 = 0;
@@ -851,24 +854,24 @@ finalscore(int scorelist1[], int scorelist2[]){
     // bonus points if requirement is met
     // add the rest
     for (int i = 0; i < 6; i++) {
-        total1 = total1 + scorelist1[i];
+        total1 = total1 + scorecard1[i];
     }
     if (total1 >= 63) {
         total1 = total1 + 35;
     }
     for (int i = 6; i < 13; i++) {
-        total1 = total1 + scorelist1[i];
+        total1 = total1 + scorecard1[i];
     }
 
     // repeat for player 2
     for (int i = 0; i < 6; i++) {
-        total2 = total2 + scorelist2[i];
+        total2 = total2 + scorecard2[i];
     }
     if (total2 >= 63) {
         total2 = total1 + 35;
     }
     for (int i = 6; i < 13; i++) {
-        total2 = total2 + scorelist1[i];
+        total2 = total2 + scorecard1[i];
     }
 
     // report results winner/tie
