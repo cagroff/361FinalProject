@@ -37,10 +37,12 @@ int rolldice( int scorecard[]) {
 
         // if press enter, move on
         if (pressent ==1) {
-            ready = 0;
+            ready = 1;
         }
 
     }
+
+    ready = 0;
 
     // roll number 2
     for (int d = 0; d < 5; d++) {
@@ -79,6 +81,8 @@ int rolldice( int scorecard[]) {
         }
 
     }
+
+    ready = 0;
 
     // roll number 3
     for (int d = 0; d < 5; d++) {
