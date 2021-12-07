@@ -1,6 +1,6 @@
 /* 
 AerE 361 Final Project
-Yahtzee Long Straight Function
+Yahtzee Small Straight Function
 Josh Christensen
 */
 
@@ -12,11 +12,11 @@ int small_straight(int die[5], int c_combo[13], int points[13])
     int sum = 0;
     int result = 0;
 
-    if(c_combo[10] == 0)
+    if(c_combo[9] == 0)
         {
             result = 1;
 
-            c_combo[10] = 1;
+            c_combo[9] = 1;
 
             for(passes = 1; passes < 5; passes++)
                 {
@@ -39,9 +39,9 @@ int small_straight(int die[5], int c_combo[13], int points[13])
                         }
                 } 
 
-            if(sum >= 4)
+            if(sum >= 3)
                 {
-                    points[10] = 30;
+                    points[9] = 30;
                 }   
         }
 

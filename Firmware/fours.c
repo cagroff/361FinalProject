@@ -1,26 +1,26 @@
 /* 
 AerE 361 Final Project
-Yahtzee Sixes Function
+Yahtzee Fours Function
 Josh Christensen
 */
 
-int sixes(int die[5], int c_combo[13], int points[13])
+int fours(int die[5], int c_combo[13], int points[13])
 {
 
     int index = 0;
     int sum = 0;
     int value = 0;
 
-    if(c_combo[5] == 0)
+    if(c_combo[3] == 0)
         {
 
-            c_combo[5] = 1;
+            c_combo[3] = 1;
             value = 1;
 
             for(index = 0; index < 5; index++)
                 {
 
-                    if(die[index] == 6)
+                    if(die[index] == 4)
                         {
 
                             sum = sum + 1;
@@ -29,7 +29,7 @@ int sixes(int die[5], int c_combo[13], int points[13])
 
                 }
 
-            points[5] = sum*6;
+            points[3] = sum*4;
 
         }
 
