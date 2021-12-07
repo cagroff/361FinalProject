@@ -482,7 +482,7 @@ int sixes(int dice[5], int scorecard[13], int points[13])
 
 //Now we are going to calculate the downstairs (Bottom of the card)
 //Calculating Three of A Kind
-int 3_of_a_kind(int dice[5], int scorecard[13], int points[13])
+int three_of_a_kind(int dice[5], int scorecard[13], int points[13])
 {
 
 int number = 0, result = 0, sum = 0;
@@ -517,7 +517,7 @@ return result;
 }
 
 //Now we are going to Calculate a Four of a Kind
-int 4_of_a_kind(int dice[5], int scorecard[13], int points[13])
+int four_of_a_kind(int dice[5], int scorecard[13], int points[13])
 {
 
 int number = 0, result = 0, sum = 0;
