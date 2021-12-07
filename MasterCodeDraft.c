@@ -2,19 +2,19 @@
 //Group MI6
 //Yahtzee
 //Josh C., Harrison H., Nathanael P., Caleb G., Tatyana V.
-
-
+#include <stdio.h>
+#include <mat.h>
 
 
 //Let's Play YAHTZEE!!!!
 
 //This is the main menu Option
-  int yahtzee_menu (void)
+int yahtzee_menu (void)
 {
         int option = 0, play_game = 0;
 
         printf("Welcome to Yahtzee!\n\n");
-
+//The user will have different options, whether they want to see the rules, start a new game or exit the game.
         do
         {
                 do
@@ -65,6 +65,28 @@
 int ScoreCard1[13] = {51};
 int ScoreCard2[13] = {51};
 
+//This is the main part of the code, which is when the game starts. This while loop will continue as long as the game is not over yet.
+int main()
+{
+	//This while loop will keep going until the game is over.
+	int endgame=0;
+
+	while (endgame!=1)
+	{
+		//This is the score that both players have after each turn.
+		//
+		int Points1[]={};
+		int Points2[]={};
+		
+		//We will first go to Player 1. They will roll the dice, then choose what they want to reroll.
+		//To do that we will call the rolling function.
+		//After rolling, Player 1 will pick which score they want to pick.
+
+		int rolldice(int scorecard[]);
+
+	}
+	endgame=1;
+}	
 
 //This part of the code will roll the dice and ask the user what they want to re-roll
 
@@ -137,7 +159,7 @@ int rolldice( int scorecard[]) {
         }
 
         if (pressent ==1) {
-            ready = 0;
+            ready = 1;
         }
 
     }
@@ -182,42 +204,55 @@ int rolldice( int scorecard[]) {
 
         if (pressone == 1) {
             space = 0;
+	    int ones(int dice[5], int scorecard[13], int points[13]);
         }
         if (presstwo == 1) {
             space = 1;
+	    int twos(int dice[5], int scorecard[13], int points[13]);
         }
         if (pressthr == 1) {
             space = 2;
+	    int threes(int dice[5], int scorecard[13], int points[13]);
         }
         if (pressfou == 1) {
             space = 3;
+	    int fours(int dice[5], int scorecard[13], int points[13]);
         }
         if (pressfiv == 1) {
             space = 4;
+	    int fives(int dice[5], int scorecard[13], int points[13]);
         }
         if (presssix == 1) {
 	    space = 5;
+	    int sixes(int dice[5], int scorecard[13], int points[13]);
         }
         if (presstok == 1) {
             space = 6;
+	    int 3_of_a_kind(int dice[5], int scoreboard[13], int points[13])	    
         }
         if (pressfok == 1) {
             space = 7;
+	    int 4_of_a_kind(int dice[5], int scoreboard[13], int points[13])
         }
         if (pressfhs == 1) {
             space = 8;
+	    int full_house(int dice[5], int scorecard[13], int points[13]);
         }
         if (presssms == 1) {
             space = 9;
+	    int small_straight(int dice[5], int scoreboard[13], int points[13]);
         }
         if (presslgs == 1) {
             space = 10;
+	    int large_straight(int dice[5], int scoreboard[13], int points[13])	    
         }
         if (pressytz == 1) {
             space = 11;
+	    int yahtzee(int dice[5], int scoreboard[13], int points[13])
         }
         if (presschn == 1) {
             space = 12;
+	    int chance(int dice[5], int scoreboard[13], int points[13]);
         }
         if (scorecard[space] != 51){
             printf("You have already selected that space! Pick another.");
@@ -444,7 +479,7 @@ int sixes(int dice[5], int scorecard[13], int points[13])
 
 //Now we are going to calculate the downstairs (Bottom of the card)
 //Calculating Three of A Kind
-int 3_of_a_kind()
+int 3_of_a_kind(int dice[5], int scoreboard[13], int points[13])
 {
 
 int number = 0, result = 0, sum = 0;
@@ -479,7 +514,7 @@ return result;
 }
 
 //Now we are going to Calculate a Four of a Kind
-int 4_of_a_kind()
+int 4_of_a_kind(int dice[5], int scoreboard[13], int points[13])
 {
 
 int number = 0, result = 0, sum = 0;
@@ -513,7 +548,7 @@ return result;
 }
 
 //Now Calculating A Full House
-int small_straight(int dice[5], int scorecard[13], int points[13])
+int full_house(int dice[5], int scorecard[13], int points[13])
 {
     int number = 0;
     int number2 = 0;
@@ -680,8 +715,9 @@ int small_straight(int dice[5], int scoreboard[13], int points[13])
 }
 
 //Calculating Large Straight
-int small_straight(int dice[5], int scoreboard[13], int points[13])
+int large_straight(int dice[5], int scoreboard[13], int points[13])
 {
+//Int d is the index of the dice that was rolled, 
     int d = 0;
     int temp = 0;
     int passes = 0;
@@ -717,7 +753,7 @@ int small_straight(int dice[5], int scoreboard[13], int points[13])
 
             if(sum >= 4)
                 {
-                    points[10] = 30;
+                    points[10] = 40;
                 }
         }
 
@@ -734,7 +770,8 @@ int yahtzee(int dice[5], int scoreboard[13], int points[13])
     int sum = 0;
 
     if([11] == 0)
-        {
+//If this was picked, then it will be marked and will only be added if all of the numbers would be the same. 
+       {
             scoreboard[11] = 1;
 
             for(number = 0; number < 5; number++)
@@ -785,6 +822,7 @@ int chance(int dice[5], int scoreboard[13], int points[13])
     int result = 0;
     int sum = 0;
 
+//If this part of the scoreboard hasn't been selected yet, scoreboard will be marked and it will add the dice of all of dice numbers.
     if(scoreboard[12] == 0)
         {
 
@@ -836,16 +874,19 @@ finalscore(int scorelist1[], int scorelist2[]){
     // report results winner/tie
     printf("GAME OVER! \n");
 
+	//Player 1 wins
     if (total1 > total2){
         printf("First Place: Player 1 with a score of %d \n", total1);
         printf("Second Place: Player 2 with a score of %d \n", total2);
     }
 
+	//Player 2 Wins
     if (total2 > total1){
         printf("First Place: Player 2 with a score of %d \n", total2);
         printf("Second Place: Player 1 with a score of %d \n", total1);
     }
 
+	//Player 1 and Player 2 Ties
     if (total2 = total1){
         printf("It's a TIE! Both players scored %d \n", total2);
     }
