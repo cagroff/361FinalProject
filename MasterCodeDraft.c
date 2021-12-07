@@ -77,13 +77,13 @@ int main()
 		//
 		int Points1[]={};
 		int Points2[]={};
-		
+	        	
 		//We will first go to Player 1. They will roll the dice, then choose what they want to reroll.
 		//To do that we will call the rolling function.
 		//After rolling, Player 1 will pick which score they want to pick.
 
 		int rolldice(int scorecard[]);
-
+		
 	}
 	endgame=1;
 }	
@@ -228,11 +228,11 @@ int rolldice( int scorecard[]) {
         }
         if (presstok == 1) {
             space = 6;
-	    int 3_of_a_kind(int dice[5], int scoreboard[13], int points[13])	    
+	    int 3_of_a_kind(int dice[5], int scorecard[13], int points[13])	    
         }
         if (pressfok == 1) {
             space = 7;
-	    int 4_of_a_kind(int dice[5], int scoreboard[13], int points[13])
+	    int 4_of_a_kind(int dice[5], int scorecard[13], int points[13])
         }
         if (pressfhs == 1) {
             space = 8;
@@ -240,19 +240,19 @@ int rolldice( int scorecard[]) {
         }
         if (presssms == 1) {
             space = 9;
-	    int small_straight(int dice[5], int scoreboard[13], int points[13]);
+	    int small_straight(int dice[5], int scorecard[13], int points[13]);
         }
         if (presslgs == 1) {
             space = 10;
-	    int large_straight(int dice[5], int scoreboard[13], int points[13])	    
+	    int large_straight(int dice[5], int scorecard[13], int points[13])	    
         }
         if (pressytz == 1) {
             space = 11;
-	    int yahtzee(int dice[5], int scoreboard[13], int points[13])
+	    int yahtzee(int dice[5], int scorecard[13], int points[13])
         }
         if (presschn == 1) {
             space = 12;
-	    int chance(int dice[5], int scoreboard[13], int points[13]);
+	    int chance(int dice[5], int scorecard[13], int points[13]);
         }
         if (scorecard[space] != 51){
             printf("You have already selected that space! Pick another.");
@@ -479,7 +479,7 @@ int sixes(int dice[5], int scorecard[13], int points[13])
 
 //Now we are going to calculate the downstairs (Bottom of the card)
 //Calculating Three of A Kind
-int 3_of_a_kind(int dice[5], int scoreboard[13], int points[13])
+int 3_of_a_kind(int dice[5], int scorecard[13], int points[13])
 {
 
 int number = 0, result = 0, sum = 0;
@@ -514,7 +514,7 @@ return result;
 }
 
 //Now we are going to Calculate a Four of a Kind
-int 4_of_a_kind(int dice[5], int scoreboard[13], int points[13])
+int 4_of_a_kind(int dice[5], int scorecard[13], int points[13])
 {
 
 int number = 0, result = 0, sum = 0;
@@ -670,7 +670,7 @@ int full_house(int dice[5], int scorecard[13], int points[13])
 }
 
 //Calculating Small Straight
-int small_straight(int dice[5], int scoreboard[13], int points[13])
+int small_straight(int dice[5], int scorecard[13], int points[13])
 {
     int d = 0;
     int temp = 0;
@@ -678,11 +678,11 @@ int small_straight(int dice[5], int scoreboard[13], int points[13])
     int sum = 0;
     int result = 0;
 
-    if(scoreboard[9] == 0)
+    if(scorecard[9] == 0)
         {
             result = 1;
 
-            scoreboard[9] = 1;
+            scorecard[9] = 1;
 
             for(passes = 1; passes < 5; passes++)
                 {
@@ -715,7 +715,7 @@ int small_straight(int dice[5], int scoreboard[13], int points[13])
 }
 
 //Calculating Large Straight
-int large_straight(int dice[5], int scoreboard[13], int points[13])
+int large_straight(int dice[5], int scorecard[13], int points[13])
 {
 //Int d is the index of the dice that was rolled, 
     int d = 0;
@@ -724,11 +724,11 @@ int large_straight(int dice[5], int scoreboard[13], int points[13])
     int sum = 0;
     int result = 0;
 
-    if(scoreboard[10] == 0)
+    if(scorecard[10] == 0)
         {
             result = 1;
 
-            scoreboard[10] = 1;
+            scorecard[10] = 1;
 
             for(passes = 1; passes < 5; passes++)
                 {
@@ -763,7 +763,7 @@ int large_straight(int dice[5], int scoreboard[13], int points[13])
 
 //Calculating a Yahtzee!!
 
-int yahtzee(int dice[5], int scoreboard[13], int points[13])
+int yahtzee(int dice[5], int scorecard[13], int points[13])
 {
     int number = 0;
     int result = 0;
@@ -772,7 +772,7 @@ int yahtzee(int dice[5], int scoreboard[13], int points[13])
     if([11] == 0)
 //If this was picked, then it will be marked and will only be added if all of the numbers would be the same. 
        {
-            scoreboard[11] = 1;
+            scorecard[11] = 1;
 
             for(number = 0; number < 5; number++)
                 {
@@ -817,16 +817,16 @@ int yahtzee(int dice[5], int scoreboard[13], int points[13])
 }
 
 //Calculating Chance Score
-int chance(int dice[5], int scoreboard[13], int points[13])
+int chance(int dice[5], int scorecard[13], int points[13])
 {
     int result = 0;
     int sum = 0;
 
 //If this part of the scoreboard hasn't been selected yet, scoreboard will be marked and it will add the dice of all of dice numbers.
-    if(scoreboard[12] == 0)
+    if(scorecard[12] == 0)
         {
 
-            scoreboard[12] = 1;
+            scorecard[12] = 1;
             result = 1;
 
             sum = dice[0] + dice[1] + dice[2] + dice[3] + dice[4];
