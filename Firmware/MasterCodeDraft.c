@@ -3,7 +3,7 @@
 //Yahtzee
 //Josh C., Harrison H., Nathanael P., Caleb G., Tatyana V.
 #include <stdio.h>
-#include <mat.h>
+#include <math.h>
 
 
 //Let's Play YAHTZEE!!!!
