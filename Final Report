@@ -1,0 +1,159 @@
+\documentclass[12pt]{article}
+\usepackage{tocloft}
+\usepackage{natbib}
+\usepackage{url}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{verbatim}
+\graphicspath{{images/}}
+\usepackage{parskip}
+\usepackage{fancyhdr}
+\usepackage{vmargin}
+\setmarginsrb{3 cm}{2.5 cm}{3 cm}{2.5 cm}{1 cm}{1.5 cm}{1 cm}{1.5 cm}
+\usepackage{appendix}
+\usepackage{listings} % For code importing
+\usepackage{xcolor} % for setting colors
+\input{arduinoLanguage.tex}  
+
+
+\begin{document}
+\title{Project Report}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{titlepage}
+	\centering
+    \vspace*{0.5 cm}
+    \includegraphics[scale = 0.11]{isu_seal.png}\\[1.0 cm]	% University Logo
+    \textsc{\LARGE IOWA STATE UNIVERSITY}\\[2.0 cm]
+    \textsc{\large AEROSPACE ENGINEERING DEPARTMENT}\\[0.2 cm]
+    \textsc{\large Computational Techniques for Aerospace Design}\\[0.2 cm]
+	\textsc{\Large AERE 361}\\[0.5 cm]				% Course Code
+	\textsc{\Large Spring 2021}\\[0.5 cm]				% Course Code
+	\textsc{\Large Final Project Report}\\[0.2 cm]
+	\textsc{\Large TEAM MI6}\\[0.2 cm]
+	\rule{\linewidth}{0.2 mm} \\[0.4 cm]
+	%{ \huge \bfseries \thetitle}\\
+	
+	
+	\begin{minipage}{0.8\textwidth}
+		
+			\begin{flushleft} 
+			\emph{Team Member Names :} \\
+			Vaughn, Tatyana\linebreak
+			Groff, Caleb\linebreak
+			Heppelmann, Harrison\linebreak
+			Phares, Nathanael\linebreak
+			Christensen, Josh\linebreak
+			
+		\end{flushleft}
+	\end{minipage}\\[2 cm]
+	
+	\vfill
+	
+\end{titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\maketitle
+\tableofcontents
+\pagebreak
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{ABSTRACT}
+
+Yahtzee is a common board game enjoyed by families across the world since the 1940s. In this report, we look at rewriting the game into code, in order to make a working Yahtzee game able to be played electronically. We will touch on the inner workings of the game, the code we wrote, the problems we encountered, how we solved these problems, and our current status. We will then will discuss our lessons learned, our results, and how we will apply these lessons in future work. 
+
+\section{INTRODUCTION}
+
+This group included Tatyana Vaughn, Caleb Groff, Harrison Heppelmann, Nathanael Phares, and Josh Christensen, all juniors/seniors in aerospace engineering. For this project, we toyed around with several different ideas before finally landing on one: Yahtzee. A somewhat simple board game, we hoped to translate it into usable code, which we could then program into an Arduino Adafruit Circuit Playground Express. 
+In order to accomplish these goals, we first had to divide the code into various sections that we could all work on independently. This involved sections like initial setup, dice rolling, endgame, and the various scoring functions. We also hoped to include a working user interface, in order to provide more accessibility to the players and streamline the game. In order to keep things simple, we decided to limit the number of players to two. 
+
+\section{FEATURES}
+
+We set out with the lofty goal of having a fully functioning Yahtzee game that could accommodate multiple players, do all scoring, and enforce game rules. Although we did not meet this, we still have many of the pieces completed. These consist of a dice rolling simulator to mimic a turn, scorecards that update, and forced scoring.
+
+\subsection{Dice Roller}
+
+As the focus of the game is rolling dice and re-rolling to attempt a better score, this needed to be the focus of our project. The player needs to roll dice, select which they would like to re-roll, and re-roll only those dice.
+
+\subsection{Score Card}
+
+Once dice have been rolled, we also wanted our program to track the scores each player scored throughout the game. This would eliminate the need for a standard paper-pencil scorecard and make the calculations as simple as possible for the players.
+
+\subsection{Rule Enforcement}
+
+In addition to the scorecard, we also wanted a way to guarantee all rules were being enforced. The only two that cannot be enforced by the dice rolling portion of the code are the score calculation and score card placement. This way, it is ensured that all of the math for scoring is done correctly, and also that players do not attempt to write over a score from an earlier turn.
+
+\section{PROBLEM STATEMENT}
+
+Yahtzee is a fun and simple game to learn, but not everyone has access to dice, paper scorecards, or the rules. As this is a game many members of our group enjoy, we thought it would be an interesting challenge to code our own version of the game. To this end, our goal for this project is to make a full digital Yahtzee game that is accessible and easy for everyone to enjoy. To achieve this, we need to have three things: a dice rolling simulator to allow players to take a turn, a multiplayer scorecard, and rule enforcement in the way of automatic score calculation.
+
+\section{PROBLEM SOLUTION}
+
+We came up with our solution by breaking down our problem. After some discussion and research, we realized that our code could be broken down into multiple functions. These include the user interface (game rules, scoreboard, etc.), scoring functions for each type of dice roll combination, a dice rolling function as well as a re-roll function, and code for the end of the game. This helped divide the work among the group and kept it simple.
+
+To help verify our solution and ensure we were on the right track, we did research to see if others had done similar projects. We found a couple of great resources on GitHub \cite{githubmweholt} \cite{githubgabrieledcjr} as well as a project on the Code Project website \cite{codeprojectwebsite} from individuals that created Yahtzee using code as well. These served to help keep us on a viable track while creating our project and inspired new methods of writing our code.
+
+We believe that our solution is a good one overall. Our goals were to make the game simple for ease-of-access, which we accomplished with our automatic score calculations and easily understandable interface. There were some issues with aligning our code to be used with the CPX board as well as it taking a considerably lengthier amount of time to code than anticipated, but nothing noteworthy beyond these items.
+
+Due to the issues with our code not aligning with the CPX board, we are unable to provide images of our solution in action. In place of this, we have taken screenshots of notable functions and provided them in our report.
+
+In Figure \ref{fig:YahtzeeRules}, we have provided a snippet of our function for displaying the rules. Players have the option to view these before beginning their game of Yahtzee.
+
+\begin{figure}
+\centering
+\includegraphics[width=4.5in]{YahtzeeRules.PNG}
+\caption{Code Snippet of the Embedded Rules}
+\label{fig:YahtzeeRules}
+\end{figure}
+
+In Figure \ref{fig:OnesCalc}, we have provided an example of one of our many scoring functions. We created a function for every combination of die that can be scored in the game of Yahtzee. These scores are automatically added to the scorecard and calculated at the end as seen in Figure \ref{fig:ScoreCalc}. This is repeated for both players to tally up their scores at the end of the game.
+
+\begin{figure}
+\centering
+\includegraphics[width=3.5in]{OnesCalculation.PNG}
+\caption{Code Snippet of the Scoring Function for Rolling Ones}
+\label{fig:OnesCalc}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=3.5in]{ScoreCalc.PNG}
+\caption{Code Snippet of the Scoring Calculation Function}
+\label{fig:ScoreCalc}
+\end{figure}
+
+\section{STATUS}
+
+At present, we have not achieved our goal of a fully functional Yahtzee game. We do, however, have all of the elements coded. This includes code for taking a turn (rolling dice and selecting a scoring method) and also all of the scoring method algorithms. They are currently in C, not C Sharp, which has caused us to be unable to present our project using the Arduino CPX board.
+
+\subsection{Lessons Learned}
+
+We learned a lot throughout this project in all aspects. As a group, we learned to communicate efficiently, whether it would be via over a zoom call, GroupMe, or in person. We learned about working together as a team. We accomplished a lot in this project including working together to put together a main code, coming up with ideas and coming to a decision together. We didn't accomplish getting a working code with the Arduino, nor were we able to properly demonstrate the game by the time presentation time came.  
+
+\section{RESULTS}
+
+We unfortunately don't have any results since the code didn't work properly. So right now there is nothing to display on the screen or graphs to look at. However, we do have the code that we have for now that will give our current results.
+
+\section{FUTURE WORK}
+
+Our major downfall as a group is that we were unsuccessful in transferring our our C code to the Circuit Playground Express. This is mainly because the CPX runs a different language than what we initially programmed our software in. Because of this we were unable to get our code to compile and execute on the hardware, which prevented us from demonstrating our Yahtzee game during our presentation.
+
+In order to fix this problem, we plan on meeting with Professor Nelson to fix our code so it is able to transfer to the Circuit Playground Express and then demonstrate to him our working project.
+
+\section{CONCLUSION}
+
+Although in the end, we didn't succeed in getting our Yahtzee game to work, we did attain some lessons throughout this project. We learned time management, teamwork, and programming. We learned better how to use GitHub, learned C programming and a little experience with programming with Arduino. All these skills we can take with us in our prospective jobs.  
+
+\newpage
+
+\bibliographystyle{plain}
+\bibliography{ref}
+\newpage
+% you need to have at least your code in your appendix
+\appendix
+\url{https://github.com/cagroff/361FinalProject/blob/main/Firmware/MasterCodeDraft.c}
+\section{SOURCE CODE}
+Source Code
+\lstinputlisting[language=Arduino]{src/demo.ino}
+\end{document}
