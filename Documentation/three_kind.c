@@ -1,6 +1,6 @@
 //Aerospace 361 Final Project
 //Group MI6
-//Tatyana Vaughn
+//Example
 //Function Three of a kind
 
 

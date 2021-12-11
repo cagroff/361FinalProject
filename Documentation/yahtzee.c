@@ -1,7 +1,7 @@
 /* 
 AerE 361 Final Project
 Yahtzee Yahtzee Function
-Josh Christensen
+Example
 */
 
 int yahtzee(int die[5], int c_combo[13], int points[13])
