@@ -3,7 +3,7 @@
 //Yahtzee
 //Josh C., Harrison H., Nathanael P., Caleb G., Tatyana V.
 #include <stdio.h>
-#include <mat.h>
+#include <math.h>
 
 
 //Let's Play YAHTZEE!!!!
@@ -11,7 +11,7 @@
 //This is the main menu Option
 int yahtzee_menu (void)
 {
-        int option = 0, play_game = 0;
+        int option = 0, main = 0;
 
         printf("Welcome to Yahtzee!\n\n");
 //The user will have different options, whether they want to see the rules, start a new game or exit the game.
@@ -19,7 +19,7 @@ int yahtzee_menu (void)
         {
                 do
                 {
-                        printf("Select an option by inputting the number:\n1. See rules\n2. New Game\n3. Exit\n");
+                        printf("Select an option by inputting the number:\n1. See Rules\n2. New Game\n3. Exit\n");
                         scanf("%d", &option);
                 }
                 while ((option != 1) && (option != 2) && (option != 3));
@@ -45,10 +45,10 @@ int yahtzee_menu (void)
                         break;
 //Case 2 starts the game.
                 case 2:
-                        play_game = 1;
+                        main = 1;
 //Case 3 Exits the game 
  		case 3:
-                        play_game = 0;
+                        main = 0;
                         break;
                 	default:
                         printf("Please enter a valid input (1, 2, or 3).\n");
@@ -57,7 +57,7 @@ int yahtzee_menu (void)
         while ((option != 2) && (option != 3));
         system("cls");
 
-        return play_game;
+        return main;
 }
 
 
