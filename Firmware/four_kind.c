@@ -1,6 +1,6 @@
 //Aerospace 361 Final Project
 //Group MI6
-//Tatyana Vaughn
+//Example
 
 
 int 4_of_a_kind()

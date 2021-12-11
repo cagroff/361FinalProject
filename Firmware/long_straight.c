@@ -1,7 +1,7 @@
 /* 
 AerE 361 Final Project
 Yahtzee Long Straight Function
-Josh Christensen
+Example
 */
 
 int small_straight(int die[5], int c_combo[13], int points[13])

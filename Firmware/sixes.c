@@ -1,7 +1,7 @@
 /* 
 AerE 361 Final Project
 Yahtzee Sixes Function
-Josh Christensen
+Example
 */
 
 int sixes(int die[5], int c_combo[13], int points[13])

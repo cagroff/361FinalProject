@@ -1,6 +1,6 @@
 /* 
 AerE 361 Final Project
-Yahtzee Ones Function
+Yahtzee Ones Function Example
 */
 
 int ones(int die[5], int c_combo[13], int points[13])

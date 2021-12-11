@@ -1,7 +1,7 @@
 /* 
 AerE 361 Final Project
 Yahtzee Fives Function
-Josh Christensen
+Example
 */
 
 int fives(int die[5], int c_combo[13], int points[13])
