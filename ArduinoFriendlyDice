@@ -1,0 +1,96 @@
+void setup() {
+  // initialize digital pin 13 as an output.
+}
+
+void loop() {
+
+// initialize variables
+  int dice[5] = {0, 0, 0, 0, 0};
+  int reroll[5] = {0, 0, 0, 0, 0};
+  int ready = 0;
+  
+// roll 1
+for (int d = 0; d < 5; d++) {
+        dice[d] = (random(1,6));
+        reroll[d] = 0;
+}
+
+// select dice to reroll
+Serial.print("Select dice to reroll.");
+for (int d = 0; d < 5; d++) {
+Serial.println(dice[d]);
+}
+    while (ready == 0) {
+        // if press button, select dice
+        if (pressone == 1) {
+            reroll[0] = 1;
+        }
+        if (presstwo == 1) {
+            reroll[1] = 1;
+        }
+        if (pressthr == 1) {
+            reroll[2] = 1;
+        }
+        if (pressfou == 1) {
+            reroll[3] = 1;
+        }
+        if (pressfiv == 1) {
+            reroll[4] = 1;
+        }
+        // if press enter, move on
+        if (pressent ==1) {
+            ready = 1;
+        }
+    }
+ready = 0;
+
+// roll number 2
+for (int d = 0; d < 5; d++) {
+if ( reroll[d] = 1) {
+       dice[d] = (random(1,6));
+       reroll[d] = 0;
+}
+}
+
+// select dice to reroll
+Serial.print("Select dice to reroll.");
+for (int d = 0; d < 5; d++) {
+  Serial.println(dice[d]);
+}
+while (ready == 0) {
+
+        // if press button, select dice
+        if (pressone == 1) {
+            reroll[0] = 1;
+        }
+        if (presstwo == 1) {
+            reroll[1] = 1;
+        }
+        if (pressthr == 1) {
+            reroll[2] = 1;
+        }
+        if (pressfou == 1) {
+            reroll[3] = 1;
+        }
+        if (pressfiv == 1) {
+            reroll[4] = 1;
+        }
+        // if press enter, move on
+        if (pressent == 1) {
+            ready = 1;
+        }
+    }
+    ready = 0;
+
+// roll number 3
+for (int d = 0; d < 5; d++) {
+if ( reroll[d] = 1) {
+       dice[d] = (random(1,6));
+       reroll[d] = 0;
+}
+}
+// final results
+for (int d = 0; d < 5; d++) {
+Serial.println(dice[d]);
+}
+}
